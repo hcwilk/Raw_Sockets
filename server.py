@@ -57,5 +57,4 @@ with socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.htons(ETH_P_ALL)) a
         print(f'dst: {bytes_to_eui48(dst)}, '
                 f'src: {bytes_to_eui48(src)}, '
                 f'type: {hex(proto)}, '
-                f'payload: {payload[:4]}...,'
-                f'raw load:{payload}')
+                f'payload: {payload[:4] if len(payload)>10 else payload}...,')

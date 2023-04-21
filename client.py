@@ -6,7 +6,7 @@ import time
 
 from ethernet import *
 
-messages = ['hi','hello','testing', 'joe','mutiny']
+messages = ['hi','hello','testing', 'joe','mutiny','superduperlongstring']
 
 def main(target, interface):
     # Create a layer 2 raw socket
@@ -17,7 +17,7 @@ def main(target, interface):
 
         index = 0
 
-        while index<5:
+        while index<len(messages):
             
             client_socket.sendall(
                 # Pack in network byte order
