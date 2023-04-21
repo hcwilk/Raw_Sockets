@@ -34,7 +34,7 @@ def main(interface):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='pyng server')
+    parser = argparse.ArgumentParser(description='Server')
     parser.add_argument('interface', type=str, help='interface name')
     args = parser.parse_args()
     main(args.interface)

@@ -22,7 +22,7 @@ def main(target, interface):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='pyng client')
+    parser = argparse.ArgumentParser(description='Client')
     parser.add_argument('target', type=str, help='target MAC address')
     parser.add_argument('interface', type=str, help='source interface name')
     args = parser.parse_args()
