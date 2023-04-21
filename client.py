@@ -31,6 +31,17 @@ def main(target, interface):
             index+=1
             time.sleep(1)
 
+'''
+GPT Explanation of the struct.pack parameters
+! - Indicates that the byte order is network byte order, which is big-endian.
+6s - Represents a string of length 6 bytes. The s character indicates that the data type is a string.
+6s - Represents another string of length 6 bytes.
+H - Represents a 2-byte unsigned integer in network byte order.
+
+2s - Represents a string of length 2 bytes.
+* This line has been replaced by the 'len(messages[index]'
+* It represents the payload
+'''
 
 
 if __name__ == '__main__':
@@ -39,3 +50,5 @@ if __name__ == '__main__':
     parser.add_argument('interface', type=str, help='source interface name')
     args = parser.parse_args()
     main(args.target, args.interface)
+
+
