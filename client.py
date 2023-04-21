@@ -5,8 +5,6 @@ import struct
 
 from ethernet import *
 
-# 2e:b6:c5:a3:37:b3
-
 def main(target, interface):
     # Create a layer 2 raw socket
     with socket.socket(socket.AF_PACKET, socket.SOCK_RAW) as client_socket:
