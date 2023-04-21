@@ -12,11 +12,11 @@ Reachability check tool over Ethernet
 ### Server
 
 ```
-sudo ./pyngd $INTERFACE
+sudo python server.py $INTERFACE
 ```
 
 ### Client
 
 ```
-sudo ./pyng $DESTINATION_MAC_ADDRESS $SOURCE_INTERFACE
+sudo .python client.py $DESTINATION_MAC_ADDRESS $SOURCE_INTERFACE
 ```
