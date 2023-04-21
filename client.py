@@ -2,8 +2,11 @@
 import argparse
 import socket
 import struct
+import time
 
 from ethernet import *
+
+messages = ['hi','hello','testing']
 
 def main(target, interface):
     # Create a layer 2 raw socket
@@ -11,14 +14,22 @@ def main(target, interface):
         # Bind an interface
         client_socket.bind((interface, 0))
         # Send a frame
-        client_socket.sendall(
-            # Pack in network byte order
-            struct.pack('!6s6sH2s',
-                        eui48_to_bytes(target),             # Destination MAC address
-                        get_hardware_address(interface),    # Source MAC address
-                        ETH_P_802_EX1,                      # Ethernet type
-                        'Hi'.encode()))                     # Payload
-        print('Sent!')
+
+        index = 0
+
+        while index<5:
+            
+            client_socket.sendall(
+                # Pack in network byte order
+                struct.pack('!6s6sH2s',
+                            eui48_to_bytes(target),             # Destination MAC address
+                            get_hardware_address(interface),    # Source MAC address
+                            ETH_P_802_EX1,                      # Ethernet type
+                            messages[index].encode()))                     # Payload
+            print('Sent!')
+            index+=1
+            time.sleep(1)
+
 
 
 if __name__ == '__main__':
