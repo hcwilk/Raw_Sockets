@@ -6,7 +6,7 @@ import time
 
 from ethernet import *
 
-messages = ['hi','hello','testing']
+messages = ['hi','hello','testing', 'joe','mutiny']
 
 def main(target, interface):
     # Create a layer 2 raw socket
@@ -21,7 +21,8 @@ def main(target, interface):
             
             client_socket.sendall(
                 # Pack in network byte order
-                struct.pack('!6s6sH2s',
+
+                struct.pack(f'!6s6sH{len(messages[index])}s',
                             eui48_to_bytes(target),             # Destination MAC address
                             get_hardware_address(interface),    # Source MAC address
                             ETH_P_802_EX1,                      # Ethernet type
